@@ -1,7 +1,6 @@
 Custom Classes in Python
 Task: Create a Rectangle class that supports iteration
-python
-Copy code
+
 class Rectangle:
     def __init__(self, length: int, width: int):
         self.length = length
@@ -16,10 +15,11 @@ rect = Rectangle(10, 5)
 
 for value in rect:
     print(value)
+
+
 Expected Output:
 
-bash
-Copy code
 {'length': 10}
 {'width': 5}
+
 This implementation makes Rectangle iterable, returning its dimensions in the specified format.
