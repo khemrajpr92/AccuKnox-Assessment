@@ -3,8 +3,6 @@ Yes, by default Django signals run in the same database transaction as the calle
 
 Proof:
 
-python
-Copy code
 from django.db import transaction
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -23,9 +21,8 @@ def create_user():
 create_user()
 Expected Output:
 
-pgsql
-Copy code
 Before creating user - Transaction status: False
 Inside signal - Transaction status: False
 After creating user - Transaction status: False
+
 Since transaction.get_autocommit() returns False inside the signal handler, it confirms that Django signals run within the same transaction as the caller.
