@@ -2,8 +2,6 @@
 
 Proof:
 
-python
-Copy code
 import threading
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -18,10 +16,11 @@ print(f"Main thread: {threading.current_thread().name}")
 
 # Creating a new user (this triggers the signal)
 User.objects.create(username="test_user")
+
+
 Expected Output:
 
-arduino
-Copy code
 Main thread: MainThread
 Signal running in thread: MainThread
+
 Since the signal runs in MainThread, it confirms that Django signals execute in the same thread as the caller.
