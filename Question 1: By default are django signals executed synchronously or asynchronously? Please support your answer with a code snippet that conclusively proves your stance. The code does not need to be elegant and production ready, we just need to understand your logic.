@@ -14,3 +14,13 @@ def signal_handler(sender, instance, **kwargs):
 # Creating a new user (this will trigger the signal)
 User.objects.create(username="test_user")
 print("User creation completed")
+
+
+Expected Output (Observed in Console Output Order):
+
+Signal started
+(Signal processing takes 3 seconds)
+Signal finished
+User creation completed
+
+This proves that the signal is executed synchronously because the execution waits for the signal handler to complete before moving forward.
